@@ -1,13 +1,10 @@
 package com.zbl.score.action;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import org.apache.struts2.interceptor.ServletRequestAware;
-import com.opensymphony.xwork2.ActionSupport;
+
 import com.zbl.score.entity.User;
 import com.zbl.score.service.UserService;
-public class LoginAction extends ActionSupport implements ServletRequestAware{
-	private static final long serialVersionUID = 1L;
+public class LoginAction {
 	@Resource
 	private UserService userService;
 	
@@ -40,32 +37,6 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		this.user = user;
 	}
 
-	@Override
-	public String execute() throws Exception {
-//		User user = new User();
-//		user.setUserName(userName);
-//		user.setPassword(password);
-	User u;
-	try {
-		u = userService.login(user);
-		if(u==null){
-			return "input";
-		}else{
-			
-			return "success";
-		}
-			
-	} catch (Exception e) {
-		e.printStackTrace();
-		return "input";
-	}
-	}
-	
-
-	public void setServletRequest(HttpServletRequest arg0) {
-		
-		
-	}
 
 
 	
